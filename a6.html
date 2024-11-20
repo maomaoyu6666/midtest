@@ -39,14 +39,13 @@
       var inputValue = document.getElementById("t1").value;
       var fontSize = parseInt(inputValue);
 
-      // 判斷輸入的數字是否有效
-      if (!isNaN(fontSize) && fontSize > 0) {
-        // 根據數字大小改變字型大小，設為最大300px，最小20px
-        fontSize = Math.min(Math.max(fontSize, 20), 300);
-        document.getElementById("birthdayMessage").style.fontSize = fontSize + "px";
+      // 當數字大於0時顯示"生日快樂"
+      if (fontSize > 0) {
+        var message = document.getElementById("birthdayMessage");
+        message.style.fontSize = fontSize + "px";
+        message.style.display = "block";  // 顯示 "生日快樂"
       } else {
-        document.getElementById("birthdayMessage").style.fontSize = "20px";  // 輸入無效時設為預設大小
-        alert("請輸入有效的數字！");
+        document.getElementById("birthdayMessage").style.display = "none";  // 輸入小於等於0時隱藏 "生日快樂"
       }
     }
   </script>
